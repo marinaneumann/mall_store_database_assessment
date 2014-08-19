@@ -22,4 +22,13 @@ describe Mall do
 		test_mall2 = Mall.new({:name => 'Pioneer Square'})
 		expect(test_mall1).to eq test_mall2
 	end
+
+	it 'sets an ID when you save it' do 
+		test_mall = Mall.new({:name => 'Pioneer Square'})
+		test_mall.save
+		expect(test_mall.id).to be_an_instance_of Fixnum
+	end
+
+
+
 end
