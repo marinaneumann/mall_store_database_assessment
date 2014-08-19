@@ -25,5 +25,9 @@ def ==(another_mall)
 	self.name == another_mall.name
 end
 
+def delete
+	DB.exec("DELETE FROM malls WHERE id =#{@id};")
+end
+
 
 end

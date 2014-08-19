@@ -29,6 +29,14 @@ describe Mall do
 		expect(test_mall.id).to be_an_instance_of Fixnum
 	end
 
+	it 'will delete an instance of the mall' do 
+		test_mall = Mall.new({:name => 'Pionner Square'})
+		test_mall.save
+		test_mall1 = Mall.new({:name => 'Valley Fair'})
+		test_mall1.save
+		test_mall1.delete
+		expect(Mall.all).to eq [test_mall]
+	end
 
 
 end
