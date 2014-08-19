@@ -6,4 +6,20 @@ describe Mall do
 		expect(test_mall).to be_an_instance_of Mall
 		expect(test_mall.name).to eq 'Pioneer Square'
 	end
+
+	it 'starts with an empty array of malls' do 
+		expect(Mall.all).to eq []
+	end
+
+	it 'adds a mall and saves it' do 
+		test_mall = Mall.new({:name => 'Pioneer Square'})
+		test_mall.save
+		expect(Mall.all).to eq [test_mall]
+	end
+
+	it 'compares two malls with the same attributes' do 
+		test_mall1 = Mall.new({:name => 'Pioneer Square'})
+		test_mall2 = Mall.new({:name => 'Pioneer Square'})
+		expect(test_mall1).to eq test_mall2
+	end
 end
