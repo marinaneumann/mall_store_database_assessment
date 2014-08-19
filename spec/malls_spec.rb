@@ -44,5 +44,15 @@ describe Mall do
 		expect(Mall.find(test_mall.id)).to eq test_mall
 	end
 
+	# it 'adds stores to a mall' do 
+	# 	test_mall = Mall.new({:name => 'Pioneer Square'})
+	# 	test_mall.save
+	# 	test_store = Store.new({:name => 'Nike'})
+	# 	test_store.save
+	# 	test_mall.add_store(test_store.id)
+	# 	expect(test_mall.get_stores).to eq [test_store]
+	# end
+
+
 
 end
