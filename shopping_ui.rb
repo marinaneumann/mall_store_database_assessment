@@ -60,5 +60,36 @@ def add_mall
 end
 
 
+def store_menu
+	puts "**Exploring Stores**"
+	puts "[1] to add a store"
+	puts "[2] to update store registry"
+	puts "[3] to search for a store"
+	puts "[4] to go back to main_menu"
+
+	choice = gets.chomp
+
+	if choice == '1'
+		add_store
+	elsif choice == '2'
+		update_store
+	elsif choice == '3'
+		search_store
+	elsif choice == '4'
+		main_menu
+	else
+		puts "Please put a valid option"
+	end
+end
+
+def add_store
+	puts "What store would you like to add?"
+	store_input = gets.chomp
+	new_store = Store.new({:name => store_input})
+	new_store.save
+	puts "#{Store.all.last.name} added to the directory"
+end
+
+
 end
 main_menu
