@@ -6,4 +6,8 @@ describe Store do
 		expect(test_store).to be_an_instance_of Store
 		expect(test_store.name).to eq 'Nike'
 	end
+
+	it 'starts with an empty array of stores' do
+		expect(Store.all).to eq []
+	end
 end

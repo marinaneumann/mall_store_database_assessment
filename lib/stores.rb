@@ -6,5 +6,8 @@ def initialize(attributes)
 	@name = attributes[:name]
 end
 
+def self.all
+	@stores = []
+end
 
 end
