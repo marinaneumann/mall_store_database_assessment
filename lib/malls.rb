@@ -4,7 +4,7 @@ attr_accessor :name, :id
 
 def initialize(attributes)
 	@name = attributes[:name]
-	@id = attributes[:id]
+	@id = attributes[:id].to_i
 end
 
 def self.all
@@ -32,6 +32,20 @@ end
 def self.find(mall_id)
 	results = DB.exec("SELECT * FROM malls WHERE id = #{mall_id};")[0]
 	Mall.new({:name => results['name'], :id => results['id']})
+end
+
+def add_store(store_id)
+	DB.exec("INSERT INTO directory (stores_id, malls_id) VALUES (#{store_id}, #{@id});")
+end
+
+def get_stores
+	@stores = []
+	results = DB.exec("SELECT stores.* FROM malls JOIN directory ON (directory.malls_id = malls.id) 
+					  JOIN stores ON (directory.stores_id = stores.id) WHERE  malls_id = #{@id};")
+	results.each do |result|
+		@stores << Store.new({:id => result['id'], :name => result['name']})
+	end
+	@stores
 end
 
 
