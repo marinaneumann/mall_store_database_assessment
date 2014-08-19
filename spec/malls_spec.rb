@@ -54,5 +54,4 @@ describe Mall do
 	end
 
 
-
 end
