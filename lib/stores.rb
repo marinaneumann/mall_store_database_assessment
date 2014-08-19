@@ -30,6 +30,8 @@ def self.find(store_id)
 	Store.new({:name =>results['name'], :id =>results['id']})
 end
 
-
+def delete
+	DB.exec("DELETE FROM stores WHERE id =#{@id};")
+end
 
 end

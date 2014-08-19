@@ -35,6 +35,15 @@ describe Store do
 		expect(Store.find(test_store.id)).to eq test_store
 	end
 
+	it 'deletes an instance of that store' do 
+		test_store = Store.new({:name => 'Nike'})
+		test_store.save
+		test_store1 = Store.new({:name => 'Nordstroms'})
+		test_store1.save
+		test_store1.delete
+		expect(Store.all).to eq [test_store]
+	end
+
 
 
 end
