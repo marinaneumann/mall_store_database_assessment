@@ -29,5 +29,10 @@ def delete
 	DB.exec("DELETE FROM malls WHERE id =#{@id};")
 end
 
+def self.find(mall_id)
+	results = DB.exec("SELECT * FROM malls WHERE id = #{mall_id};")[0]
+	Mall.new({:name => results['name'], :id => results['id']})
+end
+
 
 end

@@ -38,5 +38,11 @@ describe Mall do
 		expect(Mall.all).to eq [test_mall]
 	end
 
+	it 'returns the mall from the database with the matching id' do 
+		test_mall = Mall.new({:name => 'Pioneer Square', :id => 1})
+		test_mall.save
+		expect(Mall.find(test_mall.id)).to eq test_mall
+	end
+
 
 end
