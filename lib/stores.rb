@@ -25,6 +25,10 @@ def ==(another_store)
 	self.name == another_store.name
 end
 
+def self.find(store_id)
+	results = DB.exec("SELECT * FROM stores WHERE id = #{store_id};")[0]
+	Store.new({:name =>results['name'], :id =>results['id']})
+end
 
 
 

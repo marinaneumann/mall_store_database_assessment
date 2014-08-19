@@ -29,6 +29,12 @@ describe Store do
 		expect(test_store.id).to be_an_instance_of Fixnum
 	end
 
+	it 'returns the store from the database with the matching id' do 
+		test_store = Store.new({:name => 'Nike', :id => 1})
+		test_store.save
+		expect(Store.find(test_store.id)).to eq test_store
+	end
+
 
 
 end
