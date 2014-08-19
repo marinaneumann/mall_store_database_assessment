@@ -1,9 +1,10 @@
 class Store 
 
-attr_accessor :name 
+attr_accessor :name, :id
 
 def initialize(attributes)
 	@name = attributes[:name]
+	@id = attributes[:id]
 end
 
 def self.all
@@ -16,7 +17,8 @@ def self.all
 end
 
 def save
-	results = DB.exec("INSERT INTO stores (name) VALUES ('#{@name}');")
+	results = DB.exec("INSERT INTO stores (name) VALUES ('#{@name}') RETURNING id;")
+	@id =results.first['id'].to_i
 end
 
 def ==(another_store)

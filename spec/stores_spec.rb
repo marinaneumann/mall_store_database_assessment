@@ -22,4 +22,13 @@ describe Store do
 		test_store1 = Store.new({:name => 'Nike'})
 		expect(test_store).to eq test_store1
 	end
+
+	it 'sets an ID when you save it' do 
+		test_store = Store.new({:name => 'Nike'})
+		test_store.save
+		expect(test_store.id).to be_an_instance_of Fixnum
+	end
+
+
+
 end
